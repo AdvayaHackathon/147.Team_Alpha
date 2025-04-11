@@ -148,3 +148,56 @@ body {
     display: block;
     object-fit: cover;
 }
+
+
+.explore-section {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.explore-heading {
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 60px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Make sure the heading wraps on smaller screens */
+@media (max-width: 768px) {
+    .explore-heading {
+        font-size: 60px;
+    }
+}
+
+.destinations {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.destination-box {
+    width: 370px;
+    height: 370px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.destination-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.destination-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
