@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Tour | AnywhereNow</title>
+  <link rel="stylesheet" href="style2.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <h2 class="logo-text">AnywhereNow</h2>
+    </div>
+
+    <div class="navbar-center">
+      <div class="nav-buttons">
+        <button class="nav-btn" onclick="location.href='index.html'">Home</button>
+        <button class="nav-btn" onclick="location.href='tourist.html'">Book Tour</button>
+      </div>
+    </div>
+
+    <div class="navbar-right">
+      <div class="profile-container" onclick="toggleProfileMenu()">
+        <img src="./imgs/profilepic.png" class="profile-pic" alt="Profile" />
+        <div id="profile-menu" class="profile-menu">
+          <div class="profile-header">
+            <img src="./imgs/profilepic.png" class="menu-profile-pic" alt="Profile Pic" />
+            <p class="profile-name">Linn</p>
+          </div>
+          <button class="menu-btn">My Bookings</button>
+          <button class="menu-btn">Become a Guide</button>
+          <button class="menu-btn">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Booking Section -->
+  <div class="booking-container">
+    <h2>Book Your Tour</h2>
+
+    <!-- State Search -->
+    <input type="text" id="state-search" class="search-bar" placeholder="Search states..." oninput="filterStates()" />
+
+    <!-- State Cards -->
+    <div class="state-container" id="state-container"></div>
+
+    <!-- Place Search -->
+    <input type="text" id="place-search" class="search-bar" placeholder="Search places..." style="display:none;"
+      oninput="filterPlaces()" />
+
+    <!-- Place Cards -->
+    <div id="place-container" style="display: none;">
+      <div class="place-container" id="places"></div>
+      <button class="back-btn" onclick="goBack('state')">Back to States</button>
+    </div>
+
+    <!-- Time Slots -->
+    <div id="time-slot-container" style="display: none;">
+      <div class="time-slot-container" id="time-slots"></div>
+      <button class="back-btn" onclick="goBack('place')">Back to Places</button>
+    </div>
+
+    <!-- Guide Selection -->
+    <div id="guide-container" style="display: none;">
+      <div class="guide-container" id="guides"></div>
+      <button class="back-btn" onclick="goBack('time-slot')">Back to Time Slots</button>
+    </div>
+
+    <!-- Final Confirmation -->
+    <form id="booking-form" style="display: none;">
+      <button type="submit" class="book-btn">Confirm Booking</button>
+    </form>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const states = {
+      karnataka: ['Coorg', 'Hampi', 'Mysore'],
+      kerala: ['Munnar', 'Thiruvananthapuram', 'Kochi'],
+      tamilnadu: ['Marina Beach', 'Ooty', 'Meenakshi Amman Temple'],
+    };
+
+    function toggleProfileMenu() {
+      document.getElementById('profile-menu').classList.toggle('show');
+    }
+
+    function loadStates() {
+      const container = document.getElementById('state-container');
+      container.innerHTML = '';
+      for (const state in states) {
+        const card = document.createElement('div');
+        card.className = 'state-card';
+        card.innerHTML = `<img src="path-to-image" alt="${state}"><h3>${capitalize(state)}</h3>`;
+        card.onclick = () => showPlaces(state);
+        container.appendChild(card);
+      }
+    }
+
+    function filterStates() {
+      const input = document.getElementById('state-search').value.toLowerCase();
+      document.querySelectorAll('.state-card').forEach(card => {
+        card.style.display = card.innerText.toLowerCase().includes(input) ? 'block' : 'none';
+      });
+    }
+
+    function showPlaces(state) {
+      toggleSection('state', false);
+      toggleSection('place', true);
+      const container = document.getElementById('places');
+      container.innerHTML = '';
+      states[state].forEach(place => {
+        const card = document.createElement('div');
+        card.className = 'place-card';
+        card.innerHTML = `<img src="path-to-image" alt="${place}"><h3>${place}</h3>`;
+        card.onclick = showTimeSlots;
+        container.appendChild(card);
+      });
+    }
+
+    function filterPlaces() {
+      const input = document.getElementById('place-search').value.toLowerCase();
+      document.querySelectorAll('.place-card').forEach(card => {
+        card.style.display = card.innerText.toLowerCase().includes(input) ? 'block' : 'none';
+      });
+    }
+
+    function showTimeSlots() {
+      toggleSection('place', false);
+      toggleSection('time-slot', true);
+      const container = document.getElementById('time-slots');
+      container.innerHTML = '';
+      ['10:00-11:00', '11:00-12:00', '04:00-05:00', '05:00-06:00'].forEach(time => {
+        const card = document.createElement('div');
+        card.className = 'time-slot-card';
+        card.innerHTML = `<h3>${time}</h3>`;
+        card.onclick = showGuides;
+        container.appendChild(card);
+      });
+    }
+
+    function showGuides() {
+      toggleSection('time-slot', false);
+      toggleSection('guide', true);
+      const container = document.getElementById('guides');
+      container.innerHTML = '';
+      ['Alice', 'Bob', 'Charlie'].forEach(name => {
+        const card = document.createElement('div');
+        card.className = 'guide-card';
+        card.innerHTML = `<h3>${name}</h3>`;
+        card.onclick = confirmBooking;
+        container.appendChild(card);
+      });
+    }
+
+    function confirmBooking() {
+      toggleSection('guide', false);
+      document.getElementById('booking-form').style.display = 'block';
+    }
+
+    function goBack(step) {
+      const allSections = ['state', 'place', 'time-slot', 'guide'];
+
+      // Hide all sections
+      allSections.forEach(s => {
+        const container = document.getElementById(`${s}-container`);
+        if (container) container.style.display = 'none';
+      });
+
+      // Show only the selected step
+      const targetContainer = document.getElementById(`${step}-container`);
+      if (targetContainer) targetContainer.style.display = 'grid'; // since you're using grid in CSS
+
+      // Always hide booking form
+      document.getElementById('booking-form').style.display = 'none';
+
+      // Optional: scroll to top
+      window.scrollTo(0, 0);
+    }
+
+
+    function toggleSection(id, show) {
+      const section = document.getElementById(`${id}-container`);
+      const search = document.getElementById(`${id}-search`);
+      if (section) section.style.display = show ? 'block' : 'none';
+      if (search) search.style.display = show ? 'block' : 'none';
+    }
+
+    function capitalize(word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+
+    window.onload = loadStates;
+  </script>
+</body>
+
+</html>

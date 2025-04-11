@@ -1,0 +1,223 @@
+body {
+    background-color: #121212;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .booking-container {
+    background-color: #2d2d2d;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 800px;
+    color: white;
+    text-align: center;
+  }
+  
+  .search-bar {
+    width: 97%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+  }
+  
+  .state-container, .place-container, .time-slot-container, .guide-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .state-card, .place-card, .time-slot-card, .guide-card {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .state-card:hover, .place-card:hover, .time-slot-card:hover, .guide-card:hover {
+    background-color: #555;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  }
+  
+  .state-card img, .place-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .book-btn, .back-btn {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .book-btn {
+    background-color: #4CAF50;
+  }
+  
+  .book-btn:hover, .back-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .back-btn {
+    background-color: #f44336;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  /* Navbar */
+.navbar {
+  width: 97%;
+  background: #1f1f1f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Left Logo */
+.logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+
+/* Center Buttons */
+.navbar-center {
+  display: flex;
+  gap: 0px;
+  margin-left: 1000px;
+}
+
+.nav-btn {
+  padding: 10px 20px;
+  background: #2c2c2c;
+  color: white;
+  border: none;
+  border-radius: 0px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0px;
+  align-items: right;
+  justify-content: center;
+}
+
+.nav-btn:hover {
+  background: #444;
+}
+
+/* Right Profile */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.profile-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-pic {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #00B894;
+}
+
+/* Profile Dropdown */
+.profile-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 55px;
+  background: #2d2d2d;
+  border-radius: 0px 80px 0px 0px;
+  padding: 15px;
+  width: 220px;
+  z-index: 99;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.profile-menu.show {
+  display: block;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+.menu-profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid #00B894;
+}
+
+.profile-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+}
+
+/* Profile Menu Buttons */
+.menu-btn {
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  background: #393939;
+  border: none;
+  color: white;
+  text-align: left;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.menu-btn:hover {
+  background: #00B894;
+}
+
+/* Optional padding below navbar */
+.home-container {
+  padding-top: 100px;
+  /* Keeps content below navbar */
+  padding-left: 30px;
+  padding-right: 30px;
+}

@@ -23,7 +23,7 @@ body {
     top: 0;
     left: 0;
     z-index: 100;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Left Logo */
@@ -91,7 +91,7 @@ body {
     padding: 15px;
     width: 220px;
     z-index: 99;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .profile-menu.show {
@@ -139,20 +139,23 @@ body {
 
 /* Optional padding below navbar */
 .home-container {
-    padding-top: 100px; /* Keeps content below navbar */
+    padding-top: 100px;
+    /* Keeps content below navbar */
     padding-left: 30px;
     padding-right: 30px;
 }
 
 .hero-section {
     width: 100%;
-    margin-top: 80px; /* Push below fixed navbar */
+    margin-top: 80px;
+    /* Push below fixed navbar */
     overflow: hidden;
 }
 
 .hero-image {
     width: 100%;
-    height: auto; /* Maintains image's original aspect ratio */
+    height: auto;
+    /* Maintains image's original aspect ratio */
     display: block;
     object-fit: cover;
 }
@@ -207,5 +210,92 @@ body {
 
 .destination-box:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
+
+body.login-page {
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: #2D2D2D;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    color: white;
+    background-color: #333;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #555;
+    color: white;
+}
+
+.input-field::placeholder {
+    color: #ccc;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background-color: #111211;
+}
+
+.forgot-password {
+    text-align: left;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.forgot-password a {
+    color: white;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.signup-text {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+}
+
+.signup-text a {
+    color: #74ebd5;
+    text-decoration: none;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
