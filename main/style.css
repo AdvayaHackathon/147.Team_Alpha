@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #121212;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #1f1f1f;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFF;;
+    margin: 0;
+}
+
+/* Center buttons */
+.navbar-center {
+    position: absolute;
+    left: 88%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 3px;
+}
+
+/* Profile icon on right */
+.navbar-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-btn {
+    padding: 15px 18px;
+    background: #161616;
+    color: white;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    font-weight: 50;
+    font-size: 15px;
+    transition: background 0.3s ease;
+    margin-right: -4px;
+}
+
+.nav-btn:hover {
+    background: #333333;
+}
+
+/* Profile */
+.profile-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile-pic {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid #00B894;
+}
+
+/* Hover Profile Menu */
+.profile-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 55px;
+    background: #2D2D2D;
+    border-radius: 0px 80px 0px 0px;
+    padding: 15px;
+    width: 220px;
+    z-index: 99;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.profile-menu.show {
+    display: block;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+.menu-profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid #00B894;
+}
+
+.profile-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.menu-btn {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    background: #393939;
+    border: none;
+    color: white;
+    text-align: left;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.menu-btn:hover {
+    background: #00B894;
+}
+
+.home-container {
+    padding: 40px;
+}
