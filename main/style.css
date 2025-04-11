@@ -1,6 +1,11 @@
-body {
+/* Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     background: #121212;
     font-family: 'Poppins', sans-serif;
     color: white;
@@ -8,59 +13,55 @@ body {
 
 /* Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
+    width: 100%;
     background: #1f1f1f;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
+/* Left Logo */
 .logo-text {
     font-size: 24px;
     font-weight: 700;
-    color: #FFF;;
-    margin: 0;
+    color: white;
 }
 
-/* Center buttons */
+/* Center Buttons */
 .navbar-center {
-    position: absolute;
-    left: 88%;
-    transform: translateX(-50%);
     display: flex;
-    gap: 3px;
-}
-
-/* Profile icon on right */
-.navbar-right {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
+    gap: 20px;
 }
 
 .nav-btn {
-    padding: 15px 18px;
-    background: #161616;
+    padding: 10px 20px;
+    background: #2c2c2c;
     color: white;
     border: none;
-    border-radius: 0px;
-    cursor: pointer;
-    font-weight: 50;
+    border-radius: 4px;
     font-size: 15px;
+    cursor: pointer;
     transition: background 0.3s ease;
-    margin-right: -4px;
 }
 
 .nav-btn:hover {
-    background: #333333;
+    background: #444;
 }
 
-/* Profile */
+/* Right Profile */
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
 .profile-container {
     position: relative;
-    display: inline-block;
     cursor: pointer;
 }
 
@@ -71,13 +72,13 @@ body {
     border: 2px solid #00B894;
 }
 
-/* Hover Profile Menu */
+/* Profile Dropdown */
 .profile-menu {
     display: none;
     position: absolute;
     right: 0;
     top: 55px;
-    background: #2D2D2D;
+    background: #2d2d2d;
     border-radius: 0px 80px 0px 0px;
     padding: 15px;
     width: 220px;
@@ -108,8 +109,10 @@ body {
 .profile-name {
     font-weight: 600;
     font-size: 16px;
+    color: #fff;
 }
 
+/* Profile Menu Buttons */
 .menu-btn {
     width: 100%;
     margin: 5px 0;
@@ -126,6 +129,22 @@ body {
     background: #00B894;
 }
 
+/* Optional padding below navbar */
 .home-container {
-    padding: 40px;
+    padding-top: 100px; /* Keeps content below navbar */
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.hero-section {
+    width: 100%;
+    margin-top: 80px; /* Push below fixed navbar */
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto; /* Maintains image's original aspect ratio */
+    display: block;
+    object-fit: cover;
 }

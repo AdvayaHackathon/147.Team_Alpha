@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
     <!-- Navbar -->
     <div class="navbar">
         <div class="navbar-left">
@@ -16,31 +19,28 @@
 
         <div class="navbar-center">
             <button class="nav-btn" onclick="location.href='/'">Home</button>
-            <button class="nav-btn" onclick="location.href='/dashboard'">Book Tour</button>
+            <button class="nav-btn" onclick="location.href='/book'">Book Tour</button>
         </div>
 
         <div class="navbar-right">
             <div class="profile-container" onclick="toggleProfileMenu()">
-                <img src=".\imgs\profilepic.png" class="profile-pic" alt="Profile">
+                <img src="./imgs/profilepic.png" class="profile-pic" alt="Profile">
                 <div id="profile-menu" class="profile-menu">
                     <div class="profile-header">
-                        <img src=".\imgs\profilepic.png" class="menu-profile-pic" alt="Profile Pic">
+                        <img src="./imgs/profilepic.png" class="menu-profile-pic" alt="Profile Pic">
                         <p class="profile-name">John Doe</p>
                     </div>
                     <button class="menu-btn">My Bookings</button>
-                    <button class="menu-btn">Beceome a Guide</button>
+                    <button class="menu-btn">Become a Guide</button>
                     <button class="menu-btn">Logout</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="-section">
-        <img src="hero.jpg" alt="AnywhereNow Hero Image" class="hero-image">
-    </div>
-    
 
-    <div class="home-container">
-        <!-- Placeholder -->
+    <!-- Hero Image Section -->
+    <div class="hero-section">
+        <img src="./imgs/hero.png" alt="AnywhereNow Hero Image" class="hero-image">
     </div>
 
     <script>
@@ -49,7 +49,7 @@
             menu.classList.toggle("show");
         }
 
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (!event.target.closest('.profile-container')) {
                 const menu = document.getElementById("profile-menu");
                 if (menu && menu.classList.contains("show")) {
@@ -59,4 +59,5 @@
         };
     </script>
 </body>
+
 </html>
